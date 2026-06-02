@@ -129,6 +129,15 @@ function StickyNote({ text, tone = "yellow", className = "" }) {
   );
 }
 
+function toggleAboutCard(event) {
+  event.stopPropagation();
+  const card = event.currentTarget.closest(".about-profile-card");
+  const isFlipped = !card?.classList.contains("is-flipped");
+  state.aboutCardFlipped = isFlipped;
+  card?.classList.toggle("is-flipped", isFlipped);
+  event.currentTarget.setAttribute("aria-pressed", String(isFlipped));
+}
+
 function navHref(item) {
   const routes = {
     Home: "/",
@@ -772,10 +781,7 @@ function AboutMe() {
                 type: "button",
                 "aria-label": "Flip profile card",
                 "aria-pressed": state.aboutCardFlipped,
-                onClick: (event) => {
-                  event.stopPropagation();
-                  setState({ aboutCardFlipped: !state.aboutCardFlipped });
-                }
+                onClick: toggleAboutCard
               }, "Flip Me"),
               h("span", { className: "about-demo-cursor", "aria-hidden": "true" })
             ),
@@ -952,7 +958,12 @@ function Footer() {
     h("div", { className: "cta-block" },
       h("h2", null, "Let's work", h("br"), "together"),
       h("p", null, "Work with us if average is not your thing. Drop it, we will build it."),
-      h("button", { className: "pill-button inverse", onClick: () => setState({ whatsappOpen: true }) }, "say hello")
+      h("button", {
+        className: "pill-button inverse",
+        type: "button",
+        "aria-label": "Open WhatsApp confirmation",
+        onClick: () => setState({ whatsappOpen: true })
+      }, "say hello")
     ),
     h("div", { className: "footer-grid" },
       h("nav", null, navItems.slice(0, 4).map((item) => h("a", { key: item, href: navHref(item) }, item))),
