@@ -24,26 +24,26 @@ const projectImageSet = [
 ];
 
 const workImageSet = Array.from({ length: 11 }, (_, index) =>
-  `/assets/Work images/optimized/kozmetyx-${String(index + 1).padStart(2, "0")}.webp`
+  `/assets/Work Images/optimized/kozmetyx-${String(index + 1).padStart(2, "0")}.webp`
 );
 
 const heroCardImages = [
-  "/assets/Work images/hero-stack-optimized/yama-yoga-01.webp",
-  "/assets/Work images/hero-stack-optimized/fraser-studios-01.webp",
-  "/assets/Work images/hero-stack-optimized/kozmetyx-05.webp",
-  "/assets/Work images/hero-stack-optimized/kozmetyx-10.webp",
-  "/assets/Work images/hero-stack-optimized/farmers-mill-14.webp",
-  "/assets/Work images/hero-stack-optimized/fraser-studios-10.webp",
-  "/assets/Work images/hero-stack-optimized/soul-soup-10.webp"
+  "/assets/Work Images/hero-stack-optimized/yama-yoga-01.webp",
+  "/assets/Work Images/hero-stack-optimized/fraser-studios-01.webp",
+  "/assets/Work Images/hero-stack-optimized/kozmetyx-05.webp",
+  "/assets/Work Images/hero-stack-optimized/kozmetyx-10.webp",
+  "/assets/Work Images/hero-stack-optimized/farmers-mill-14.webp",
+  "/assets/Work Images/hero-stack-optimized/fraser-studios-10.webp",
+  "/assets/Work Images/hero-stack-optimized/soul-soup-10.webp"
 ];
 
 const paradigmImageSet = Array.from({ length: 4 }, (_, index) =>
-  `/assets/Work images/paradigm-spaces-${String(index + 1).padStart(2, "0")}.webp`
+  `/assets/Work Images/paradigm-spaces-${String(index + 1).padStart(2, "0")}.webp`
 );
 
 const projectImageGroup = (slug, count) =>
   Array.from({ length: count }, (_, index) =>
-    `/assets/Work images/${slug}-${String(index + 1).padStart(2, "0")}.webp`
+    `/assets/Work Images/${slug}-${String(index + 1).padStart(2, "0")}.webp`
   );
 
 const createImageProject = ({ slug, name, type, count, thumbIndex = 0, cover }) => {
@@ -163,7 +163,7 @@ const caseStudyProjects = [
     name: "Kozmetyx",
     type: "Branding and packaging design",
     year: "2026",
-    img: "/assets/Work images/work-listing-covers/kozmetyx.webp",
+    img: "/assets/Work Images/work-listing-covers/kozmetyx.webp",
     href: "/work/kozmetyx",
     images: workImageSet
   },
@@ -172,7 +172,7 @@ const caseStudyProjects = [
     name: "Paradigm Spaces",
     type: "Rebrand and web design",
     year: "2026",
-    img: "/assets/Work images/work-listing-covers/paradigm-spaces.webp",
+    img: "/assets/Work Images/work-listing-covers/paradigm-spaces.webp",
     href: "/work/paradigm-spaces",
     images: paradigmImageSet
   },
@@ -181,56 +181,56 @@ const caseStudyProjects = [
     name: "Farmer's Mill",
     type: "Branding & packaging design",
     count: 14,
-    cover: "/assets/Work images/work-listing-covers/farmers-mill.webp"
+    cover: "/assets/Work Images/work-listing-covers/farmers-mill.webp"
   }),
   createImageProject({
     slug: "yama-yoga",
     name: "Yama Yoga",
     type: "Sustainable activewear",
     count: 2,
-    cover: "/assets/Work images/work-listing-covers/yama-yoga.webp"
+    cover: "/assets/Work Images/work-listing-covers/yama-yoga.webp"
   }),
   createImageProject({
     slug: "soul-soup",
     name: "Soul Soup",
     type: "Brand & web design",
     count: 16,
-    cover: "/assets/Work images/work-listing-covers/soul-soup.webp"
+    cover: "/assets/Work Images/work-listing-covers/soul-soup.webp"
   }),
   createImageProject({
     slug: "physiotherapy-clinic",
     name: "Physiotherapy Clinic",
     type: "Website design",
     count: 2,
-    cover: "/assets/Work images/work-listing-covers/physiotherapy-clinic.webp"
+    cover: "/assets/Work Images/work-listing-covers/physiotherapy-clinic.webp"
   }),
   createImageProject({
     slug: "moxie",
     name: "Moxie",
     type: "Brand strategy & identity design",
     count: 16,
-    cover: "/assets/Work images/work-listing-covers/moxie.webp"
+    cover: "/assets/Work Images/work-listing-covers/moxie.webp"
   }),
   createImageProject({
     slug: "fraser-studios",
     name: "Fraser Studios",
     type: "Rebrand identity",
     count: 14,
-    cover: "/assets/Work images/work-listing-covers/fraser-studios.webp"
+    cover: "/assets/Work Images/work-listing-covers/fraser-studios.webp"
   }),
   createImageProject({
     slug: "kiniva",
     name: "Kiniva",
     type: "Dry nuts brand identity & packaging",
     count: 5,
-    cover: "/assets/Work images/work-listing-covers/kiniva.webp"
+    cover: "/assets/Work Images/work-listing-covers/kiniva.webp"
   }),
   createImageProject({
     slug: "sustainable-mobility",
     name: "Sustainable Mobility",
     type: "Communication design",
     count: 23,
-    cover: "/assets/Work images/work-listing-covers/sustainable-mobility.webp"
+    cover: "/assets/Work Images/work-listing-covers/sustainable-mobility.webp"
   })
 ];
 
