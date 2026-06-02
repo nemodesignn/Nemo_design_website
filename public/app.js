@@ -154,6 +154,13 @@ const projects = [
   ["FRASER STUDIOS", "Brand Strategy | Brand Identity | Website Design", "", projectImageSet[3]]
 ];
 
+const projectHrefByName = {
+  "SOUL SOUP": "/work/soul-soup",
+  KOZMETYX: "/work/kozmetyx",
+  MOXIE: "/work/moxie",
+  "FRASER STUDIOS": "/work/fraser-studios"
+};
+
 const caseStudyProjects = [
   {
     slug: "kozmetyx",
@@ -664,7 +671,7 @@ function Projects() {
     ),
     h("div", { className: "project-grid" },
       projects.map(([name, type, year, img], index) =>
-        h("article", { className: "project-card", key: name, style: { "--delay": `${index * 0.08}s` } },
+        h("a", { className: "project-card project-card-link", href: withBase(projectHrefByName[name] || "/work"), key: name, style: { "--delay": `${index * 0.08}s` } },
           h("img", { src: assetSrc(img), alt: `${name} placeholder project visual`, loading: "lazy" }),
           h("div", { className: "video-label" }, h("span", null, "View case study")),
           h("footer", null,
@@ -689,7 +696,7 @@ function ApproachWorkPreview() {
     ),
     h("div", { className: "project-grid" },
       projects.slice(0, 2).map(([name, type, year, img], index) =>
-        h("article", { className: "project-card", key: name, style: { "--delay": `${index * 0.08}s` } },
+        h("a", { className: "project-card project-card-link", href: withBase(projectHrefByName[name] || "/work"), key: name, style: { "--delay": `${index * 0.08}s` } },
           h("img", { src: assetSrc(img), alt: `${name} project visual`, loading: "lazy" }),
           h("div", { className: "video-label" }, h("span", null, "View case study")),
           h("footer", null,

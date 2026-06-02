@@ -1375,6 +1375,7 @@ body.is-dark-mode .client-logo-card img {
   opacity: 0;
   transform: translateY(-8px);
   transition: opacity 260ms ease, transform 320ms ease;
+  pointer-events: none;
 }
 
 .video-label span {
