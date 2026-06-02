@@ -1,0 +1,10 @@
+{
+  "name": "studio-namma-react-clone",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NEMO DESIGN STUDIOS React and Node landing page using placeholder media.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
