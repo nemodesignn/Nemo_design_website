@@ -22,6 +22,7 @@
   src:
     local("benzin-regular"),
     local("Benzin Regular"),
+    url("./assets/fonts/benzin-regular.ttf") format("truetype"),
     url("./assets/fonts/benzin-regular.woff2") format("woff2"),
     url("./assets/fonts/benzin-regular.woff") format("woff");
   font-display: swap;
@@ -32,6 +33,7 @@
   src:
     local("benzin-light"),
     local("Benzin Light"),
+    url("./assets/fonts/benzin-light.ttf") format("truetype"),
     url("./assets/fonts/benzin-light.woff2") format("woff2"),
     url("./assets/fonts/benzin-light.woff") format("woff");
   font-display: swap;
@@ -42,6 +44,7 @@
   src:
     local("benzin-bold"),
     local("Benzin Bold"),
+    url("./assets/fonts/benzin-bold.ttf") format("truetype"),
     url("./assets/fonts/benzin-bold.woff2") format("woff2"),
     url("./assets/fonts/benzin-bold.woff") format("woff");
   font-display: swap;
