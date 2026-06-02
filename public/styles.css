@@ -2263,7 +2263,7 @@ body.is-dark-mode .client-logo-card img {
 .whatsapp-modal-overlay {
   position: fixed;
   inset: 0;
-  z-index: 260;
+  z-index: 500;
   display: grid;
   place-items: center;
   padding: 22px;

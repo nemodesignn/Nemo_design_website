@@ -522,11 +522,13 @@ function WhatsAppModal() {
           "aria-label": "Cancel WhatsApp redirect",
           onClick: () => setState({ whatsappOpen: false })
         }, "Cancel"),
-        h("button", {
+        h("a", {
           className: "pill-button whatsapp-open",
           "aria-label": "Open WhatsApp chat in a new tab",
+          href: whatsappUrl,
+          target: "_blank",
+          rel: "noopener noreferrer",
           onClick: () => {
-            window.open(whatsappUrl, "_blank", "noopener,noreferrer");
             setState({ whatsappOpen: false });
           }
         }, "Open WhatsApp")
