@@ -397,6 +397,12 @@ function Header() {
     ),
     h("div", { className: "header-actions" },
       h("button", {
+        className: "text-button menu-button",
+        type: "button",
+        "aria-label": "Open menu",
+        onClick: () => setState({ menuOpen: true })
+      }, "Menu"),
+      h("button", {
         className: "theme-toggle",
         type: "button",
         "aria-pressed": state.darkMode,

@@ -456,6 +456,13 @@ img {
   text-underline-offset: 4px;
 }
 
+.menu-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  color: inherit;
+}
+
 .pill-button,
 .submit-button,
 .cookie-banner button {
@@ -3994,5 +4001,153 @@ body.is-dark-mode .client-logo-card img {
 
   .testimonial-card {
     min-height: 220px;
+  }
+}
+
+/* Mobile safety override: keep all content reachable even if scroll animations do not fire */
+@media (max-width: 900px) {
+  html,
+  body,
+  #root,
+  .app-frame,
+  .home-content {
+    min-height: 0 !important;
+    overflow-x: hidden;
+  }
+
+  .site-header {
+    position: absolute;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: center;
+  }
+
+  .header-actions {
+    justify-self: end;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .menu-button,
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    padding: 0;
+    font-size: 0.62rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .hero,
+  .hero.section-shell {
+    min-height: 0 !important;
+    height: auto !important;
+    padding-top: 76px !important;
+    padding-bottom: 22px !important;
+    gap: 18px !important;
+    place-items: start !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 10vw, 2.8rem) !important;
+    line-height: 0.92 !important;
+  }
+
+  .hero-card-stack {
+    width: min(48vw, 176px) !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+  }
+
+  .hero-marquee {
+    margin: 0 !important;
+  }
+
+  .hero-marquee-track span {
+    min-height: 32px !important;
+    padding: 0 16px !important;
+    font-size: 0.52rem !important;
+  }
+
+  .intro,
+  .projects,
+  .about-me,
+  .services,
+  .testimonials,
+  .site-footer {
+    min-height: 0 !important;
+    padding-top: 34px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .intro-grid,
+  .about-me-grid,
+  .project-grid,
+  .services:not(.services-studio) .service-row {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 22px !important;
+  }
+
+  .intro-lines {
+    padding-top: 0 !important;
+    justify-self: start !important;
+  }
+
+  .reveal,
+  .reveal.is-visible,
+  .intro h2,
+  .intro-lines p,
+  .section-heading,
+  .services-hero .eyebrow,
+  .services-hero h2,
+  .services-hero p:not(.eyebrow),
+  .approach-copy h2,
+  .approach-copy p,
+  .approach-roadmap-head h2,
+  .cta-block h2,
+  .cta-block p,
+  .project-card,
+  .testimonial-card,
+  .services-studio .service-panel,
+  .service-tags span,
+  .approach-step,
+  .approach-timeline-item {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .brand-main {
+    font-size: 0.54rem !important;
+    letter-spacing: 0.055rem !important;
+  }
+
+  .brand-studios {
+    display: none;
+  }
+
+  .header-actions .pill-button {
+    display: none !important;
+  }
+
+  .header-actions {
+    gap: 9px;
+  }
+
+  .menu-button,
+  .theme-toggle {
+    font-size: 0.54rem !important;
+    letter-spacing: 0.045rem !important;
+  }
+
+  .hero,
+  .hero.section-shell {
+    padding-top: 66px !important;
+    padding-bottom: 18px !important;
   }
 }
