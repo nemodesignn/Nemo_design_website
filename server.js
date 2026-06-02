@@ -42,10 +42,17 @@ const server = http.createServer((req, res) => {
   const ext = extname(target);
   const isHtml = ext === ".html";
 
-  res.writeHead(200, {
+  const headers = {
     "Content-Type": mimeTypes[ext] || "application/octet-stream",
-    "Cache-Control": isHtml ? "no-store" : "public, max-age=31536000, immutable"
-  });
+    "Cache-Control": isHtml ? "no-store" : "public, max-age=31536000, immutable",
+    "Content-Security-Policy": "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; upgrade-insecure-requests",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()"
+  };
+
+  res.writeHead(200, headers);
 
   createReadStream(target).pipe(res);
 });

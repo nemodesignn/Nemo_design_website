@@ -462,10 +462,25 @@ img {
 }
 
 .menu-button {
-  display: inline-flex;
+  display: none;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  width: 34px;
   min-height: 40px;
   color: inherit;
+}
+
+.menu-button::after {
+  display: none;
+}
+
+.menu-button span {
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: currentColor;
 }
 
 .pill-button,
@@ -4053,6 +4068,12 @@ body.is-dark-mode .client-logo-card img {
     align-items: center;
   }
 
+  .work-page,
+  .services-page,
+  .approach-page {
+    padding-top: 74px;
+  }
+
   .header-actions {
     justify-self: end;
     display: inline-flex;
@@ -4071,6 +4092,37 @@ body.is-dark-mode .client-logo-card img {
     font-size: 0.62rem;
     line-height: 1;
     white-space: nowrap;
+  }
+
+  .menu-button {
+    width: 34px;
+    padding: 0;
+  }
+
+  .overlay {
+    inset: 10px;
+    padding: 70px 24px 36px;
+  }
+
+  .menu-grid {
+    min-height: auto !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-content: center;
+    gap: 30px;
+  }
+
+  .menu-intro,
+  .clock-list {
+    display: none;
+  }
+
+  .menu-links {
+    gap: 14px;
+  }
+
+  .menu-links a {
+    font-size: clamp(2.1rem, 13vw, 4rem) !important;
+    line-height: 0.95;
   }
 
   .hero,

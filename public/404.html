@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta
       name="description"
       content="React and Node recreation of a premium creative studio website with placeholder imagery."
     />
     <title>NEMO DESIGN STUDIOS</title>
-    <link rel="stylesheet" href="/Nemo_design_website/styles.css?v=20260603-mobile-zoom-lock" />
+    <link rel="stylesheet" href="/Nemo_design_website/styles.css?v=20260603-mobile-security-menu" />
   </head>
   <body>
     <div id="root">
@@ -44,10 +46,6 @@
     </div>
 
     <script src="/Nemo_design_website/vendor/react-fallback.js"></script>
-    <script defer crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
-    <script defer crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
-    <script defer crossorigin src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script defer crossorigin src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script defer src="/Nemo_design_website/app.js?v=20260603-mobile-zoom-lock"></script>
+    <script defer src="/Nemo_design_website/app.js?v=20260603-mobile-security-menu"></script>
   </body>
 </html>

@@ -119,7 +119,7 @@ const state = {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const whatsappUrl = "https://wa.me/917015016467?text=Hi%2C%20I%20want%20to%20talk%20to%20you%20regarding%20your%20services.";
 
-const navItems = ["Home", "Work", "Services", "Approach", "Studio", "Plans", "News"];
+const navItems = ["Home", "Work", "Services", "Approach"];
 
 function StickyNote({ text, tone = "yellow", className = "" }) {
   return h(
@@ -134,10 +134,7 @@ function navHref(item) {
     Home: "/",
     Work: "/work",
     Services: "/services",
-    Approach: "/approach",
-    Studio: "/#intro",
-    Plans: "/#services",
-    News: "/work#kozmetyx-case"
+    Approach: "/approach"
   };
 
   return withBase(routes[item] || "/");
@@ -401,7 +398,11 @@ function Header() {
         type: "button",
         "aria-label": "Open menu",
         onClick: () => setState({ menuOpen: true })
-      }, "Menu"),
+      },
+        h("span", null),
+        h("span", null),
+        h("span", null)
+      ),
       h("button", {
         className: "theme-toggle",
         type: "button",
@@ -783,7 +784,7 @@ function AboutMe() {
               h("h3", null, "Nimar Arora"),
               h("p", null, "Brand identity, packaging, and digital experiences shaped with clarity, consistency, and intent."),
               h("div", { className: "about-socials", "aria-label": "Social links" },
-                h("a", { href: "https://www.instagram.com/nemodesignstudios?igsh=Y3cwNW5vYm5uOG5k", target: "_blank", rel: "noreferrer", "aria-label": "Instagram" }, h(SocialIcon, { type: "instagram" })),
+                h("a", { href: "https://www.instagram.com/nemodesignstudios?igsh=Y3cwNW5vYm5uOG5k", target: "_blank", rel: "noopener noreferrer", "aria-label": "Instagram" }, h(SocialIcon, { type: "instagram" })),
                 h("a", { href: "#", "aria-label": "LinkedIn" }, h(SocialIcon, { type: "linkedin" })),
                 h("a", { href: "mailto:nemo.designn@gmail.com", "aria-label": "Gmail" }, h(SocialIcon, { type: "gmail" }))
               )
@@ -949,7 +950,7 @@ function Footer() {
       h("div", null, h("a", { href: "mailto:nemo.designn@gmail.com" }, "nemo.designn@gmail.com"), h("span", null, "Copyright 2026")),
       h("nav", null,
         h("a", { href: "#" }, "LinkedIn"),
-        h("a", { href: "https://www.instagram.com/nemodesignstudios?igsh=Y3cwNW5vYm5uOG5k", target: "_blank", rel: "noreferrer" }, "Instagram")
+        h("a", { href: "https://www.instagram.com/nemodesignstudios?igsh=Y3cwNW5vYm5uOG5k", target: "_blank", rel: "noopener noreferrer" }, "Instagram")
       )
     )
   );
