@@ -2356,6 +2356,24 @@ body.is-dark-mode .client-logo-card img {
   animation: overlayIn 500ms cubic-bezier(.16, 1, .3, 1) both;
 }
 
+.menu-overlay {
+  inset: 0 0 0 auto;
+  width: min(420px, calc(100vw - 20px));
+  min-height: 100vh;
+  border: 0;
+  border-left: 1px solid var(--line);
+  background: var(--page);
+  color: var(--ink);
+  transform: translateX(100%);
+  transition: transform 420ms cubic-bezier(.16, 1, .3, 1);
+}
+
+.menu-overlay.is-open {
+  display: block;
+  animation: none;
+  transform: translateX(0);
+}
+
 .overlay-close {
   position: absolute;
   top: 24px;
@@ -4068,6 +4086,10 @@ body.is-dark-mode .client-logo-card img {
     align-items: center;
   }
 
+  .app-frame::before {
+    display: none !important;
+  }
+
   .work-page,
   .services-page,
   .approach-page {
@@ -4102,6 +4124,17 @@ body.is-dark-mode .client-logo-card img {
   .overlay {
     inset: 10px;
     padding: 70px 24px 36px;
+  }
+
+  .menu-overlay {
+    inset: 0 0 0 auto !important;
+    width: min(340px, 86vw);
+    min-height: 100dvh;
+    padding: 76px 24px 34px;
+    border: 0;
+    border-left: 1px solid var(--line);
+    background: var(--page);
+    color: var(--ink);
   }
 
   .menu-grid {
@@ -4216,17 +4249,29 @@ body.is-dark-mode .client-logo-card img {
   }
 
   .header-actions .pill-button {
-    display: none !important;
+    display: inline-flex !important;
+    min-height: 28px;
+    padding: 0 8px;
+    font-size: 0.48rem !important;
+    letter-spacing: 0.035rem !important;
   }
 
   .header-actions {
-    gap: 9px;
+    gap: 7px;
   }
 
   .menu-button,
   .theme-toggle {
-    font-size: 0.54rem !important;
+    font-size: 0.48rem !important;
     letter-spacing: 0.045rem !important;
+  }
+
+  .menu-button {
+    width: 28px;
+  }
+
+  .menu-button span {
+    width: 16px;
   }
 
   .hero,
