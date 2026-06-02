@@ -2461,6 +2461,7 @@ body.is-dark-mode .client-logo-card img {
   border: 1px solid var(--line);
   background: var(--page);
   box-shadow: var(--shadow);
+  pointer-events: auto;
 }
 
 .cookie-banner p {
@@ -3052,11 +3053,33 @@ body.is-dark-mode .client-logo-card img {
   }
 
   .cookie-banner {
-    left: 18px;
-    right: 18px;
-    bottom: 18px;
-    flex-direction: column;
-    align-items: flex-start;
+    left: 50%;
+    right: auto;
+    bottom: max(14px, env(safe-area-inset-bottom));
+    width: min(330px, calc(100vw - 28px));
+    max-width: none;
+    transform: translateX(-50%);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 9px 9px 12px;
+    background: rgba(246, 244, 239, 0.94);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.13);
+  }
+
+  .cookie-banner p {
+    max-width: 190px;
+    font-size: 0.68rem;
+    line-height: 1.25;
+  }
+
+  .cookie-banner button {
+    min-height: 30px;
+    padding: 0 12px;
+    white-space: nowrap;
+    font-size: 0.58rem;
   }
 
   .cursor-dot {

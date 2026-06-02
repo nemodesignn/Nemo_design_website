@@ -1132,7 +1132,6 @@ function ProjectsOverviewPage() {
     h(MenuOverlay),
     h(ContactModal),
     h(WhatsAppModal),
-    h(CookieBanner),
     h("div", { className: "scroll-progress", "aria-hidden": "true" })
   );
 }
@@ -1153,7 +1152,6 @@ function WorkPage({ project, caseStudy = "kozmetyx" } = {}) {
     h(MenuOverlay),
     h(ContactModal),
     h(WhatsAppModal),
-    h(CookieBanner),
     h("div", { className: "cursor-dot", "aria-hidden": "true" }),
     h("div", { className: "scroll-progress", "aria-hidden": "true" })
   );
@@ -1175,7 +1173,6 @@ function Home() {
     h(MenuOverlay),
     h(ContactModal),
     h(WhatsAppModal),
-    h(CookieBanner),
     h("div", { className: "cursor-dot", "aria-hidden": "true" }),
     h("div", { className: "scroll-progress", "aria-hidden": "true" })
   );
@@ -1192,7 +1189,6 @@ function ServicesPage() {
     h(MenuOverlay),
     h(ContactModal),
     h(WhatsAppModal),
-    h(CookieBanner),
     h("div", { className: "cursor-dot", "aria-hidden": "true" }),
     h("div", { className: "scroll-progress", "aria-hidden": "true" })
   );
@@ -1209,7 +1205,6 @@ function ApproachPage() {
     h(MenuOverlay),
     h(ContactModal),
     h(WhatsAppModal),
-    h(CookieBanner),
     h("div", { className: "cursor-dot", "aria-hidden": "true" }),
     h("div", { className: "scroll-progress", "aria-hidden": "true" })
   );
@@ -1228,7 +1223,8 @@ function App() {
     "main",
     { className: `app-frame ${routeClass} ${state.preloaderVisible ? "is-preloading" : "is-ready"}` },
     h(PreloaderAnimation),
-    isApproachPage ? h(ApproachPage) : isServicesPage ? h(ServicesPage) : isWorkIndexPage ? h(ProjectsOverviewPage) : isKozmetyxCasePage ? h(WorkPage) : imageProject ? h(WorkPage, { project: imageProject }) : h(Home)
+    isApproachPage ? h(ApproachPage) : isServicesPage ? h(ServicesPage) : isWorkIndexPage ? h(ProjectsOverviewPage) : isKozmetyxCasePage ? h(WorkPage) : imageProject ? h(WorkPage, { project: imageProject }) : h(Home),
+    h(CookieBanner)
   );
 }
 
