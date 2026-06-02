@@ -23,7 +23,11 @@ const mimeTypes = {
 };
 
 function safePath(urlPath) {
-  const decoded = decodeURIComponent(urlPath.split("?")[0]);
+  const basePath = "/Nemo_design_website";
+  const rawPath = decodeURIComponent(urlPath.split("?")[0]);
+  const decoded = rawPath === basePath || rawPath.startsWith(`${basePath}/`)
+    ? rawPath.slice(basePath.length) || "/"
+    : rawPath;
   const clean = normalize(decoded).replace(/^(\.\.[/\\])+/, "");
   const filePath = resolve(join(publicDir, clean === "/" ? "/index.html" : clean));
   return filePath.startsWith(publicDir) ? filePath : join(publicDir, "index.html");

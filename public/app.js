@@ -61,9 +61,27 @@ const createImageProject = ({ slug, name, type, count, thumbIndex = 0, cover }) 
 };
 
 const preloaderStorageKey = "nemo-preloader-seen";
+const githubPagesBase = "/Nemo_design_website";
+const siteBase = window.location.pathname === githubPagesBase || window.location.pathname.startsWith(`${githubPagesBase}/`)
+  ? githubPagesBase
+  : "";
+
+function withBase(path) {
+  if (!path || path.startsWith("http") || path.startsWith("mailto:") || path.startsWith("tel:") || path.startsWith("#")) return path;
+  if (path === "/") return siteBase || "/";
+  return `${siteBase}${path}`;
+}
+
+function assetSrc(path) {
+  return withBase(path);
+}
 
 function currentPath() {
-  return window.location.pathname.replace(/\/$/, "") || "/";
+  const pathname = window.location.pathname.startsWith(siteBase)
+    ? window.location.pathname.slice(siteBase.length) || "/"
+    : window.location.pathname;
+
+  return pathname.replace(/\/$/, "") || "/";
 }
 
 function shouldShowPreloaderOnLoad() {
@@ -122,7 +140,7 @@ function navHref(item) {
     News: "/work#kozmetyx-case"
   };
 
-  return routes[item] || "/";
+  return withBase(routes[item] || "/");
 }
 
 const cities = [
@@ -371,7 +389,7 @@ function Header() {
   return h(
     "header",
     { className: "site-header" },
-    h("a", { className: "brand", href: "/", "aria-label": "Home" },
+    h("a", { className: "brand", href: withBase("/"), "aria-label": "Home" },
       h(BrandMark)
     ),
     h("nav", { className: "desktop-nav", "aria-label": "Primary" },
@@ -535,7 +553,7 @@ function HeroCards() {
         }
       },
         h("img", {
-          src,
+          src: assetSrc(src),
           alt: `NEMO DESIGN STUDIOS project card ${index + 1}`,
           loading: index === 0 ? "eager" : "lazy"
         })
@@ -623,7 +641,7 @@ function Intro() {
     h("div", { className: "media-rail", "aria-label": "client logo display rail" },
       clientLogoSet.concat(clientLogoSet).map(([src, alt], index) =>
         h("div", { className: "client-logo-card", key: `${src}-${index}` },
-          h("img", { src, alt, loading: "lazy" })
+          h("img", { src: assetSrc(src), alt, loading: "lazy" })
         )
       )
     )
@@ -640,7 +658,7 @@ function Projects() {
     h("div", { className: "project-grid" },
       projects.map(([name, type, year, img], index) =>
         h("article", { className: "project-card", key: name, style: { "--delay": `${index * 0.08}s` } },
-          h("img", { src: img, alt: `${name} placeholder project visual`, loading: "lazy" }),
+          h("img", { src: assetSrc(img), alt: `${name} placeholder project visual`, loading: "lazy" }),
           h("div", { className: "video-label" }, h("span", null, "View case study")),
           h("footer", null,
             h("strong", null, name),
@@ -650,7 +668,7 @@ function Projects() {
       )
     ),
     h("div", { className: "project-actions" },
-      h("a", { className: "pill-button project-view-more", href: "/work" }, "View more")
+      h("a", { className: "pill-button project-view-more", href: withBase("/work") }, "View more")
     )
   );
 }
@@ -665,7 +683,7 @@ function ApproachWorkPreview() {
     h("div", { className: "project-grid" },
       projects.slice(0, 2).map(([name, type, year, img], index) =>
         h("article", { className: "project-card", key: name, style: { "--delay": `${index * 0.08}s` } },
-          h("img", { src: img, alt: `${name} project visual`, loading: "lazy" }),
+          h("img", { src: assetSrc(img), alt: `${name} project visual`, loading: "lazy" }),
           h("div", { className: "video-label" }, h("span", null, "View case study")),
           h("footer", null,
             h("strong", null, name),
@@ -675,7 +693,7 @@ function ApproachWorkPreview() {
       )
     ),
     h("div", { className: "project-actions" },
-      h("a", { className: "pill-button project-view-more", href: "/work" }, "View more")
+      h("a", { className: "pill-button project-view-more", href: withBase("/work") }, "View more")
     )
   );
 }
@@ -729,7 +747,7 @@ function AboutMe() {
               h("div", { className: "about-orb about-orb-one", "aria-hidden": "true" }),
               h("div", { className: "about-orb about-orb-two", "aria-hidden": "true" }),
               h("img", {
-                src: "/assets/about/nimar-about-photo.jpeg",
+                src: assetSrc("/assets/about/nimar-about-photo.jpeg"),
                 alt: "Nimar Arora portrait",
                 loading: "lazy"
               }),
@@ -793,7 +811,7 @@ function Services() {
         h("h2", null, "Services"),
         h(StickyNote, { text: "choose the path", tone: "yellow", className: "note-services" })
       ),
-      h("a", { href: "/services" }, "See all")
+      h("a", { href: withBase("/services") }, "See all")
     ),
     h("div", { className: "service-list" },
       services.map(([title, text]) =>
@@ -905,7 +923,7 @@ function ApproachPageContent() {
       h("div", { className: "approach-services-cta-inner" },
         h("h2", null, "Let's build a", h("br"), "strategic brand"),
         h("p", null, "Build a memorable brand where all your brand elements work in harmony so that your audience won't forget your lifestyle brand and form a deeper emotional connection."),
-        h("a", { className: "pill-button approach-services-button", href: "/services" }, "View services")
+        h("a", { className: "pill-button approach-services-button", href: withBase("/services") }, "View services")
       )
     )
   );
@@ -948,7 +966,7 @@ function CookieBanner() {
 
 function ViewMoreProjectsButton() {
   return h("div", { className: "project-actions work-case-actions" },
-    h("a", { className: "pill-button project-view-more", href: "/work" }, "View More Projects")
+    h("a", { className: "pill-button project-view-more", href: withBase("/work") }, "View More Projects")
   );
 }
 
@@ -957,7 +975,7 @@ function WorkCaseStudy() {
     "section",
     { id: "kozmetyx-case", className: "work-case section-shell" },
     h("figure", { className: "work-case-cover" },
-      h("img", { src: workImageSet[0], alt: "Kozmetyx campaign posters on a wall" })
+      h("img", { src: assetSrc(workImageSet[0]), alt: "Kozmetyx campaign posters on a wall" })
     ),
     h("div", { className: "work-case-header" },
       h("div", { className: "work-case-intro" },
@@ -976,7 +994,7 @@ function WorkCaseStudy() {
     h("div", { className: "work-case-gallery" },
       workImageSet.slice(1).flatMap((image, index) => {
         const figure = h("figure", { key: image },
-          h("img", { src: image, alt: `Kozmetyx case study visual ${index + 2}`, loading: "lazy" })
+          h("img", { src: assetSrc(image), alt: `Kozmetyx case study visual ${index + 2}`, loading: "lazy" })
         );
         const items = [figure];
 
@@ -1049,12 +1067,12 @@ function ParadigmCaseStudy() {
     "section",
     { id: "paradigm-spaces-case", className: "work-case section-shell is-vertical-case" },
     h("figure", { className: "work-case-cover" },
-      h("img", { src: paradigmImageSet[0], alt: "Paradigm Spaces rebrand and website presentation" })
+      h("img", { src: assetSrc(paradigmImageSet[0]), alt: "Paradigm Spaces rebrand and website presentation" })
     ),
     h("div", { className: "work-case-gallery" },
       paradigmImageSet.slice(1).map((image, index) =>
         h("figure", { key: image },
-          h("img", { src: image, alt: `Paradigm Spaces case study visual ${index + 2}`, loading: "lazy" })
+          h("img", { src: assetSrc(image), alt: `Paradigm Spaces case study visual ${index + 2}`, loading: "lazy" })
         )
       ),
       h(ViewMoreProjectsButton)
@@ -1069,7 +1087,7 @@ function ImageOnlyCaseStudy({ project }) {
     h("div", { className: "work-case-gallery" },
       project.images.map((image, index) =>
         h("figure", { key: image },
-          h("img", { src: image, alt: `${project.name} case study visual ${index + 1}`, loading: index === 0 ? "eager" : "lazy" })
+          h("img", { src: assetSrc(image), alt: `${project.name} case study visual ${index + 1}`, loading: index === 0 ? "eager" : "lazy" })
         )
       ),
       h(ViewMoreProjectsButton)
@@ -1090,12 +1108,12 @@ function ProjectsOverviewPage() {
         caseStudyProjects.map((project, index) =>
           h("a", {
             className: "project-card project-card-link",
-            href: project.href,
+            href: withBase(project.href),
             key: project.name,
             style: { "--delay": `${index * 0.08}s` }
           },
             h("img", {
-              src: project.img,
+              src: assetSrc(project.img),
               alt: `${project.name} project visual`,
               loading: index < 2 ? "eager" : "lazy",
               decoding: "async",
