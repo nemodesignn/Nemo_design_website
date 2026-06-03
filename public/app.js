@@ -653,12 +653,9 @@ function Intro() {
       ),
       h("div", { className: "intro-lines" },
         h("p", null,
-          "The strongest brands aren’t built through visuals alone.",
-          h("br"),
-          "They’re built through clarity, consistency, and intentional",
-          h("br"),
-          "experiences that shape how people feel, remember,",
-          h("br"),
+          "The strongest brands aren’t built through visuals alone. ",
+          "They’re built through clarity, consistency, and intentional ",
+          "experiences that shape how people feel, remember, ",
           "and trust a business."
         )
       )

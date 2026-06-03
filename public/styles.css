@@ -4284,3 +4284,141 @@ body.is-dark-mode .client-logo-card img {
     padding-bottom: 18px !important;
   }
 }
+
+/* Mobile correction: visible header nav, full brand, sticky notes, and readable cards */
+@media (max-width: 900px) {
+  .site-header {
+    height: auto !important;
+    min-height: 0 !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    row-gap: 10px !important;
+    column-gap: 12px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .brand-mark {
+    white-space: nowrap !important;
+  }
+
+  .brand-studios {
+    display: inline !important;
+  }
+
+  .menu-button {
+    display: none !important;
+  }
+
+  .desktop-nav {
+    display: flex !important;
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(0.46rem, 2vw, 0.62rem);
+    line-height: 1;
+  }
+
+  .desktop-nav a {
+    letter-spacing: 0.055rem;
+    white-space: nowrap;
+  }
+
+  .hero,
+  .hero.section-shell {
+    padding-top: 112px !important;
+  }
+
+  .intro-lines p {
+    max-width: 100% !important;
+    text-align: left !important;
+    text-align-last: left !important;
+    word-spacing: normal !important;
+  }
+
+  .sticky-note {
+    display: inline-flex !important;
+    min-width: 84px;
+    max-width: 112px;
+    min-height: 58px;
+    padding: 12px 10px 10px;
+    font-size: 0.6rem;
+    z-index: 7;
+  }
+
+  .intro-logo-line .sticky-note {
+    margin-left: 10px;
+    transform: rotate(3deg) translateY(-8px);
+  }
+
+  .about-copy-heading .sticky-note,
+  .services .section-heading .sticky-note,
+  .testimonials-heading .sticky-note {
+    margin-left: 10px;
+    transform: rotate(-3deg);
+  }
+
+  .approach-process-list {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .approach-process-card,
+  .approach-step {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding: 24px !important;
+  }
+
+  .approach-process-card .approach-step-body h3,
+  .approach-step-body h3 {
+    font-size: clamp(1.7rem, 8vw, 2.5rem) !important;
+    line-height: 1.05 !important;
+    overflow-wrap: anywhere;
+  }
+
+  .approach-process-card .approach-step-body p,
+  .approach-step-body p {
+    max-width: 100% !important;
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+    overflow-wrap: anywhere;
+  }
+
+  .approach-step-meta {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 520px) {
+  .brand-main {
+    font-size: 0.5rem !important;
+    letter-spacing: 0.045rem !important;
+  }
+
+  .brand-studios {
+    font-size: 0.5rem !important;
+    letter-spacing: 0.035rem !important;
+  }
+
+  .theme-toggle,
+  .header-actions .pill-button {
+    font-size: 0.43rem !important;
+  }
+
+  .desktop-nav {
+    font-size: 0.45rem !important;
+    gap: 7px !important;
+  }
+
+  .desktop-nav a {
+    letter-spacing: 0.04rem !important;
+  }
+
+  .hero,
+  .hero.section-shell {
+    padding-top: 104px !important;
+  }
+}
