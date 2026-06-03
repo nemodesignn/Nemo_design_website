@@ -4610,3 +4610,223 @@ body.is-dark-mode .client-logo-card img {
     max-width: calc(100vw - 40px) !important;
   }
 }
+
+/* Final mobile typography repair: no clipped words, no one-letter line breaks */
+@media (max-width: 900px) {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root,
+  .app-frame {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  .section-shell,
+  .site-header,
+  .desktop-nav,
+  .hero,
+  .intro,
+  .projects,
+  .about-me,
+  .services,
+  .testimonials,
+  .work-page,
+  .services-page,
+  .approach-page,
+  .site-footer {
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .hero-title,
+  .intro h2,
+  .section-heading h2,
+  .about-copy-heading h2,
+  .services-hero h2,
+  .approach-hero h1,
+  .cta-block h2,
+  .work-case-header h2,
+  .contact-copy h2,
+  .service-body h3,
+  .approach-step-body h3 {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  .intro h2,
+  .section-heading h2,
+  .about-copy-heading h2,
+  .services-hero h2,
+  .approach-hero h1,
+  .cta-block h2,
+  .work-case-header h2,
+  .contact-copy h2 {
+    white-space: normal !important;
+  }
+
+  .hero-title {
+    width: 100% !important;
+    font-size: clamp(1.7rem, 6.15vw, 2.45rem) !important;
+    line-height: 0.96 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .hero-title > span {
+    display: block !important;
+    max-width: 100% !important;
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  .intro h2,
+  .section-heading h2,
+  .about-copy-heading h2,
+  .services-hero h2,
+  .approach-hero h1,
+  .cta-block h2,
+  .work-case-header h2 {
+    font-size: clamp(2rem, 7.4vw, 2.85rem) !important;
+    line-height: 0.98 !important;
+  }
+
+  .about-copy-heading h2 {
+    max-width: min(100%, 11.5ch) !important;
+  }
+
+  .intro-logo-line,
+  .heading-note-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 10px !important;
+    align-items: start !important;
+    white-space: normal !important;
+  }
+
+  .sticky-note {
+    position: relative !important;
+    inset: auto !important;
+    display: inline-flex !important;
+    justify-self: start !important;
+    align-self: start !important;
+    margin: 6px 0 0 !important;
+    transform: rotate(3deg) !important;
+    z-index: 1 !important;
+  }
+
+  .intro-logo-line .sticky-note,
+  .about-copy-heading .sticky-note,
+  .services .section-heading .sticky-note,
+  .testimonials-heading .sticky-note {
+    margin-left: 0 !important;
+    margin-top: 6px !important;
+    transform: rotate(3deg) !important;
+  }
+
+  .about-copy-first-line {
+    display: block !important;
+    white-space: normal !important;
+  }
+
+  .about-copy-rest {
+    display: inline !important;
+  }
+
+  .intro-lines,
+  .intro-lines p,
+  .about-me-copy,
+  .about-me-copy p,
+  .service-body,
+  .service-body p,
+  .approach-step-body,
+  .approach-step-body p,
+  .cta-block,
+  .cta-block p,
+  .work-case-header,
+  .project-overview,
+  .testimonial-card p {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  p,
+  li,
+  dd {
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  span,
+  a,
+  strong {
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --page-gutter: 20px;
+  }
+
+  .section-shell,
+  .site-header,
+  .desktop-nav {
+    width: calc(100vw - 40px) !important;
+    max-width: calc(100vw - 40px) !important;
+  }
+
+  .hero.section-shell {
+    padding-top: 104px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(1.55rem, 5.95vw, 2rem) !important;
+    line-height: 0.98 !important;
+  }
+
+  .intro h2,
+  .section-heading h2,
+  .about-copy-heading h2,
+  .services-hero h2,
+  .approach-hero h1,
+  .cta-block h2,
+  .work-case-header h2 {
+    font-size: clamp(1.85rem, 7.3vw, 2.35rem) !important;
+    line-height: 1 !important;
+  }
+
+  .about-copy-heading h2 {
+    max-width: min(100%, 11ch) !important;
+  }
+
+  .about-me-copy p,
+  .intro-lines p,
+  .service-body p,
+  .approach-step-body p {
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+  }
+
+  .sticky-note {
+    min-width: 78px !important;
+    max-width: 98px !important;
+    min-height: 50px !important;
+    padding: 10px 9px 8px !important;
+    font-size: 0.54rem !important;
+  }
+}
