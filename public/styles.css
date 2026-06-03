@@ -4939,32 +4939,23 @@ body.is-dark-mode .client-logo-card img {
     overflow-wrap: normal !important;
     word-break: normal !important;
     opacity: 0 !important;
-    transform: translateX(-34px) !important;
-    transition:
-      opacity 460ms cubic-bezier(0.22, 1, 0.36, 1),
-      transform 560ms cubic-bezier(0.22, 1, 0.36, 1),
-      color 220ms ease !important;
-    transition-delay: calc(110ms + var(--delay, 0s)) !important;
-    will-change: transform, opacity;
+    transform: translateX(-42px) !important;
+    will-change: transform, opacity, filter;
   }
 
   .menu-overlay.is-open .menu-links a {
-    opacity: 1 !important;
-    transform: translateX(0) !important;
+    animation: mobileMenuLinkIn 720ms cubic-bezier(0.16, 1, 0.3, 1) both !important;
+    animation-delay: calc(140ms + var(--delay, 0s)) !important;
   }
 
   .menu-actions {
     opacity: 0 !important;
-    transform: translateX(-24px) !important;
-    transition:
-      opacity 460ms cubic-bezier(0.22, 1, 0.36, 1),
-      transform 560ms cubic-bezier(0.22, 1, 0.36, 1) !important;
-    transition-delay: 300ms !important;
+    transform: translateX(-28px) !important;
+    will-change: transform, opacity, filter;
   }
 
   .menu-overlay.is-open .menu-actions {
-    opacity: 1 !important;
-    transform: translateX(0) !important;
+    animation: mobileMenuLinkIn 720ms cubic-bezier(0.16, 1, 0.3, 1) 340ms both !important;
   }
 
   .menu-actions {
@@ -5001,6 +4992,24 @@ body.is-dark-mode .client-logo-card img {
 
   .menu-links a {
     font-size: clamp(1.72rem, 8.2vw, 2.7rem) !important;
+  }
+}
+
+@keyframes mobileMenuLinkIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-42px);
+    filter: blur(8px);
+  }
+
+  55% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
   }
 }
 
