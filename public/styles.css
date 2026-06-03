@@ -3209,6 +3209,110 @@ body.is-dark-mode .client-logo-card img {
   }
 }
 
+/* Global mobile overflow guard for long headings and sticky notes */
+@media (max-width: 900px) {
+  .hero-title,
+  .intro h2,
+  .section-heading h2,
+  .services-hero h2,
+  .approach-hero h1,
+  .cta-block h2,
+  .work-case-header h2,
+  .contact-copy h2,
+  .menu-links a,
+  .service-body h3,
+  .approach-step-body h3 {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2.05rem, 8.1vw, 3rem) !important;
+    line-height: 0.93 !important;
+  }
+
+  .hero-title > span {
+    max-width: 100%;
+  }
+
+  .intro h2,
+  .section-heading h2 {
+    font-size: clamp(2.15rem, 9vw, 3.1rem) !important;
+  }
+
+  .intro-logo-line {
+    display: grid !important;
+    grid-template-columns: minmax(0, max-content) auto;
+    align-items: start;
+    column-gap: 12px;
+    white-space: normal !important;
+  }
+
+  .sticky-note {
+    position: relative !important;
+    inset: auto !important;
+    place-self: start;
+    margin: 0 !important;
+    transform: rotate(3deg) !important;
+  }
+
+  .heading-note-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .section-heading .sticky-note,
+  .about-copy-heading .sticky-note,
+  .services .section-heading .sticky-note,
+  .testimonials-heading .sticky-note {
+    margin-top: 4px !important;
+  }
+
+  .intro-lines,
+  .about-me-copy,
+  .service-body,
+  .approach-step-body,
+  .cta-block,
+  .work-case-header,
+  .project-overview {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  p,
+  li,
+  dd,
+  span {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-title {
+    font-size: clamp(1.85rem, 7.8vw, 2.55rem) !important;
+  }
+
+  .sticky-note {
+    min-width: 78px !important;
+    max-width: 96px !important;
+    min-height: 52px !important;
+    font-size: 0.55rem !important;
+  }
+
+  .intro-logo-line {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 8px;
+  }
+
+  .intro-logo-line .sticky-note {
+    justify-self: end;
+    transform: rotate(3deg) translateY(-4px) !important;
+  }
+}
+
 @media (max-width: 900px) {
   :root {
     --page-gutter: 28px;
