@@ -5403,3 +5403,46 @@ body.is-dark-mode .client-logo-card img {
     padding-bottom: 38px !important;
   }
 }
+
+/* Final internal-page clearance: keep fixed/absolute header from covering page content */
+.work-page:not(.projects-overview-page) > .work-case.section-shell {
+  padding-top: clamp(132px, 9vw, 168px) !important;
+}
+
+.work-page:not(.projects-overview-page) > .work-case.section-shell .work-case-cover:first-child,
+.work-page:not(.projects-overview-page) > .work-case.section-shell .work-case-gallery:first-child {
+  margin-top: 0 !important;
+}
+
+.projects-overview-page,
+.services-page,
+.approach-page {
+  padding-top: clamp(104px, 7.5vw, 136px) !important;
+}
+
+.services-page .services-studio.section-shell,
+.approach-page .approach-hero.section-shell,
+.projects-overview-page .projects-overview.section-shell {
+  padding-top: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .work-page:not(.projects-overview-page) > .work-case.section-shell {
+    padding-top: 112px !important;
+  }
+
+  .projects-overview-page,
+  .services-page,
+  .approach-page {
+    padding-top: 112px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .work-page:not(.projects-overview-page) > .work-case.section-shell,
+  .projects-overview-page,
+  .services-page,
+  .approach-page {
+    padding-top: 104px !important;
+  }
+}
