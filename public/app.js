@@ -971,7 +971,7 @@ function Footer() {
     { id: "contact", className: "site-footer section-shell reveal" },
     h("div", { className: "cta-block" },
       h("h2", null, "Let's work", h("br"), "together"),
-      h("p", null, "Work with us if average is not your thing. Drop it, we will build it."),
+      h("p", null, "Work with us if average is not your thing.", h("br"), "Drop it, we will build it."),
       h("button", {
         className: "pill-button inverse",
         type: "button",
