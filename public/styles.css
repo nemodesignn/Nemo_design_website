@@ -5180,46 +5180,95 @@ body.is-dark-mode .client-logo-card img {
   }
 
   .hero-stack-card:nth-child(1) {
-    --depth: 0;
-    z-index: 8;
+    z-index: 8 !important;
+    opacity: 1 !important;
+    transform: translate3d(0, 0, 0) rotate(-8deg) !important;
   }
 
   .hero-stack-card:nth-child(2) {
-    --depth: 1;
-    z-index: 7;
+    z-index: 7 !important;
+    opacity: 0.92 !important;
+    transform: translate3d(-12px, 12px, 0) scale(0.965) rotate(5deg) !important;
   }
 
   .hero-stack-card:nth-child(3) {
-    --depth: 2;
-    z-index: 6;
+    z-index: 6 !important;
+    opacity: 0.84 !important;
+    transform: translate3d(-24px, 24px, 0) scale(0.93) rotate(-3deg) !important;
   }
 
   .hero-stack-card:nth-child(4) {
-    --depth: 3;
-    z-index: 5;
+    z-index: 5 !important;
+    opacity: 0.76 !important;
+    transform: translate3d(-36px, 36px, 0) scale(0.895) rotate(8deg) !important;
   }
 
   .hero-stack-card:nth-child(5) {
-    --depth: 4;
-    z-index: 4;
+    z-index: 4 !important;
+    opacity: 0.68 !important;
+    transform: translate3d(-48px, 48px, 0) scale(0.86) rotate(-6deg) !important;
   }
 
   .hero-stack-card:nth-child(6) {
-    --depth: 5;
-    z-index: 3;
+    z-index: 3 !important;
+    opacity: 0.6 !important;
+    transform: translate3d(-60px, 60px, 0) scale(0.825) rotate(4deg) !important;
   }
 
   .hero-stack-card:nth-child(7) {
-    --depth: 6;
-    z-index: 2;
+    z-index: 2 !important;
+    opacity: 0.52 !important;
+    transform: translate3d(-72px, 72px, 0) scale(0.79) rotate(-10deg) !important;
   }
 
   .hero-stack-card:nth-child(8) {
-    --depth: 7;
-    z-index: 1;
+    z-index: 1 !important;
+    opacity: 0.44 !important;
+    transform: translate3d(-84px, 84px, 0) scale(0.755) rotate(7deg) !important;
   }
 
   .hero-marquee {
     margin-top: 0 !important;
+  }
+
+  .reveal,
+  .reveal.is-visible,
+  .section-heading,
+  .intro h2,
+  .intro-lines p,
+  .projects .section-heading,
+  .about-me .section-heading,
+  .services .section-heading,
+  .testimonials .section-heading,
+  .project-card,
+  .testimonial-card,
+  .services-studio .service-panel,
+  .service-index,
+  .approach-step,
+  .approach-process-card,
+  .approach-timeline-item,
+  .cta-block h2,
+  .cta-block p {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+  }
+
+  .about-me-copy p,
+  .testimonial-card p,
+  .service-body p,
+  .services:not(.services-studio) .service-row p,
+  .project-overview p,
+  .work-case-header p,
+  .work-case-text-break p,
+  .approach-step-body p,
+  .approach-process-card .approach-step-body p,
+  .approach-services-cta p,
+  .cta-block p {
+    text-align: left !important;
+    text-align-last: left !important;
+    word-spacing: normal !important;
   }
 }
