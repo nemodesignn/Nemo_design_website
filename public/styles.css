@@ -4830,3 +4830,38 @@ body.is-dark-mode .client-logo-card img {
     font-size: 0.54rem !important;
   }
 }
+
+/* Keep testimonial title aligned with the section/card edge */
+.testimonials-heading,
+.testimonials-heading .heading-note-row {
+  justify-content: flex-start !important;
+  justify-items: start !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+
+.testimonials-heading {
+  width: 100% !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.testimonials-heading h2 {
+  text-align: left !important;
+}
+
+@media (max-width: 900px) {
+  .testimonials-heading {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
+  .testimonials-heading .heading-note-row {
+    width: 100% !important;
+  }
+
+  .testimonials-heading .sticky-note {
+    justify-self: start !important;
+    margin-left: 0 !important;
+  }
+}
