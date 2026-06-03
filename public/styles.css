@@ -4938,23 +4938,27 @@ body.is-dark-mode .client-logo-card img {
     white-space: nowrap !important;
     overflow-wrap: normal !important;
     word-break: normal !important;
-    opacity: 0 !important;
-    transform: translateX(-42px) !important;
+    opacity: 0;
+    transform: translateX(-42px);
     will-change: transform, opacity, filter;
   }
 
   .menu-overlay.is-open .menu-links a {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
     animation: mobileMenuLinkIn 720ms cubic-bezier(0.16, 1, 0.3, 1) both !important;
     animation-delay: calc(140ms + var(--delay, 0s)) !important;
   }
 
   .menu-actions {
-    opacity: 0 !important;
-    transform: translateX(-28px) !important;
+    opacity: 0;
+    transform: translateX(-28px);
     will-change: transform, opacity, filter;
   }
 
   .menu-overlay.is-open .menu-actions {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
     animation: mobileMenuLinkIn 720ms cubic-bezier(0.16, 1, 0.3, 1) 340ms both !important;
   }
 
