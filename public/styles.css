@@ -4967,3 +4967,77 @@ body.is-dark-mode .client-logo-card img {
     width: min(330px, 90vw) !important;
   }
 }
+
+/* Final typography consistency: sticky notes and body copy */
+.sticky-note,
+.sticky-note span {
+  font-family: "Segoe Print", "Bradley Hand ITC", "Comic Sans MS", cursive !important;
+  font-weight: 600 !important;
+  line-height: 1.18 !important;
+  letter-spacing: 0 !important;
+  text-align: center !important;
+  text-transform: none !important;
+  white-space: pre-line !important;
+}
+
+.intro-lines p,
+.about-me-copy p,
+.services:not(.services-studio) .service-row p,
+.services-hero p:not(.eyebrow),
+.service-body p,
+.testimonial-card p,
+.work-case-header p,
+.project-overview p,
+.work-case-text-break p,
+.approach-step-body p,
+.approach-process-card .approach-step-body p,
+.approach-roadmap-head p:not(.eyebrow),
+.approach-timeline-item p,
+.approach-services-cta p,
+.cta-block p,
+.whatsapp-modal p,
+.contact-copy p:last-child,
+.menu-intro p {
+  text-align: justify !important;
+  text-align-last: left !important;
+  word-spacing: normal !important;
+}
+
+@media (max-width: 900px) {
+  .sticky-note {
+    font-family: "Segoe Print", "Bradley Hand ITC", "Comic Sans MS", cursive !important;
+    font-size: 0.6rem !important;
+    font-weight: 600 !important;
+    line-height: 1.18 !important;
+    letter-spacing: 0 !important;
+    text-align: center !important;
+  }
+
+  .intro-lines p,
+  .about-me-copy p,
+  .services:not(.services-studio) .service-row p,
+  .services-hero p:not(.eyebrow),
+  .service-body p,
+  .testimonial-card p,
+  .work-case-header p,
+  .project-overview p,
+  .work-case-text-break p,
+  .approach-step-body p,
+  .approach-process-card .approach-step-body p,
+  .approach-roadmap-head p:not(.eyebrow),
+  .approach-timeline-item p,
+  .approach-services-cta p,
+  .cta-block p,
+  .whatsapp-modal p,
+  .contact-copy p:last-child,
+  .menu-intro p {
+    text-align: justify !important;
+    text-align-last: left !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .sticky-note {
+    font-size: 0.54rem !important;
+  }
+}
