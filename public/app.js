@@ -435,6 +435,10 @@ function Header() {
 }
 
 function MenuOverlay() {
+  const mobileMenuLabels = {
+    Services: "Service"
+  };
+
   return h(
     "div",
     { className: `overlay menu-overlay ${state.menuOpen ? "is-open" : ""}`, "aria-hidden": !state.menuOpen },
@@ -455,7 +459,7 @@ function MenuOverlay() {
             href: navHref(item),
             onClick: () => setState({ menuOpen: false }),
             style: { "--delay": `${index * 0.04}s` }
-          }, item)
+          }, mobileMenuLabels[item] || item)
         )
       ),
       h("div", { className: "menu-actions" },

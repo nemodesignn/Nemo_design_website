@@ -4926,13 +4926,45 @@ body.is-dark-mode .client-logo-card img {
 
   .menu-links {
     display: grid !important;
-    gap: 12px !important;
+    gap: 10px !important;
   }
 
   .menu-links a {
-    font-size: clamp(2.15rem, 11vw, 3.9rem) !important;
-    line-height: 0.95 !important;
+    width: max-content !important;
+    max-width: 100% !important;
+    font-size: clamp(1.85rem, 8.7vw, 3.05rem) !important;
+    line-height: 0.98 !important;
     text-align: left !important;
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    opacity: 0 !important;
+    transform: translateX(-34px) !important;
+    transition:
+      opacity 460ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      color 220ms ease !important;
+    transition-delay: calc(110ms + var(--delay, 0s)) !important;
+    will-change: transform, opacity;
+  }
+
+  .menu-overlay.is-open .menu-links a {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+  }
+
+  .menu-actions {
+    opacity: 0 !important;
+    transform: translateX(-24px) !important;
+    transition:
+      opacity 460ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 560ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+    transition-delay: 300ms !important;
+  }
+
+  .menu-overlay.is-open .menu-actions {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
   }
 
   .menu-actions {
@@ -4965,6 +4997,10 @@ body.is-dark-mode .client-logo-card img {
 
   .menu-overlay {
     width: min(330px, 90vw) !important;
+  }
+
+  .menu-links a {
+    font-size: clamp(1.72rem, 8.2vw, 2.7rem) !important;
   }
 }
 
