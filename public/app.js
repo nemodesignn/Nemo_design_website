@@ -392,13 +392,13 @@ function PreloaderAnimation() {
   );
 }
 
-function Header() {
-  const toggleDarkMode = () => {
-    const nextMode = !state.darkMode;
-    localStorage.setItem("nemo-dark-mode", String(nextMode));
-    setState({ darkMode: nextMode });
-  };
+function toggleDarkMode() {
+  const nextMode = !state.darkMode;
+  localStorage.setItem("nemo-dark-mode", String(nextMode));
+  setState({ darkMode: nextMode });
+}
 
+function Header() {
   return h(
     "header",
     { className: "site-header" },
@@ -457,6 +457,19 @@ function MenuOverlay() {
             style: { "--delay": `${index * 0.04}s` }
           }, item)
         )
+      ),
+      h("div", { className: "menu-actions" },
+        h("button", {
+          className: "theme-toggle menu-theme-toggle",
+          type: "button",
+          "aria-pressed": state.darkMode,
+          onClick: toggleDarkMode
+        }, state.darkMode ? "Light mode" : "Dark mode"),
+        h("button", {
+          className: "pill-button menu-whatsapp-button",
+          "aria-label": "Open WhatsApp confirmation",
+          onClick: () => setState({ menuOpen: false, whatsappOpen: true })
+        }, "Let's talk")
       ),
       h("div", { className: "clock-list" },
         cities.map(([city, zone]) =>

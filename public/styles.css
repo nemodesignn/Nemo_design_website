@@ -4865,3 +4865,105 @@ body.is-dark-mode .client-logo-card img {
     margin-left: 0 !important;
   }
 }
+
+/* Mobile header: keep navigation, mode, and contact inside the hamburger menu */
+.menu-actions {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    row-gap: 0 !important;
+  }
+
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .header-actions {
+    display: inline-flex !important;
+    justify-self: end !important;
+  }
+
+  .menu-button {
+    display: inline-flex !important;
+    width: 36px !important;
+    min-height: 34px !important;
+    padding: 0 !important;
+  }
+
+  .menu-button span {
+    width: 22px !important;
+  }
+
+  .header-actions > .theme-toggle,
+  .header-actions > .pill-button {
+    display: none !important;
+  }
+
+  .menu-overlay {
+    inset: 0 0 0 auto !important;
+    width: min(360px, 88vw) !important;
+    min-height: 100dvh !important;
+    padding: 76px 24px 34px !important;
+    transform: translateX(105%) !important;
+    transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  .menu-overlay.is-open {
+    transform: translateX(0) !important;
+  }
+
+  .menu-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-content: center !important;
+    gap: 28px !important;
+    min-height: calc(100dvh - 110px) !important;
+  }
+
+  .menu-links {
+    display: grid !important;
+    gap: 12px !important;
+  }
+
+  .menu-links a {
+    font-size: clamp(2.15rem, 11vw, 3.9rem) !important;
+    line-height: 0.95 !important;
+    text-align: left !important;
+  }
+
+  .menu-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .menu-actions .theme-toggle,
+  .menu-actions .pill-button {
+    display: inline-flex !important;
+    min-height: 38px !important;
+    padding: 0 16px !important;
+    font-family: "benzin-light", "benzin-regular", "Arial Narrow", Arial, sans-serif !important;
+    font-size: 0.64rem !important;
+    letter-spacing: 0.08rem !important;
+    text-transform: uppercase !important;
+  }
+
+  .menu-actions .pill-button {
+    border: 1px solid currentColor !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .brand-studios {
+    display: inline !important;
+  }
+
+  .menu-overlay {
+    width: min(330px, 90vw) !important;
+  }
+}
