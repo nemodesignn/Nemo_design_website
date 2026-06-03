@@ -3906,7 +3906,7 @@ body.is-dark-mode .client-logo-card img {
 }
 
 /* Final responsive pass for deployed pages */
-@media (min-width: 901px) {
+@media (min-width: 901px), (hover: hover) and (pointer: fine) {
   .hero.section-shell {
     min-height: min(620px, calc(100vh - 70px));
     padding-top: clamp(72px, 7vh, 96px);
@@ -5092,7 +5092,7 @@ body.is-dark-mode .client-logo-card img {
 }
 
 /* Desktop hero recovery: keep recent mobile fixes from changing the original desktop hero */
-@media (min-width: 901px) {
+@media (min-width: 901px), (hover: hover) and (pointer: fine) {
   .home-content > .hero.section-shell,
   .hero.section-shell {
     width: min(calc(100% - (var(--page-gutter) * 2)), var(--content-max)) !important;
