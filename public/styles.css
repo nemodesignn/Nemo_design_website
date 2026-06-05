@@ -5736,3 +5736,41 @@ body.is-locked {
     padding-top: max(78px, calc(env(safe-area-inset-top) + 64px)) !important;
   }
 }
+
+/* Hero stack rotation fix: let JavaScript depth updates control the active front image */
+.hero-stack-card,
+.hero-stack-card:nth-child(1),
+.hero-stack-card:nth-child(2),
+.hero-stack-card:nth-child(3),
+.hero-stack-card:nth-child(4),
+.hero-stack-card:nth-child(5),
+.hero-stack-card:nth-child(6),
+.hero-stack-card:nth-child(7),
+.hero-stack-card:nth-child(8) {
+  transform:
+    translate3d(calc(var(--depth) * -7px), calc(var(--depth) * 9px), 0)
+    scale(calc(1 - (var(--depth) * 0.035)))
+    rotate(var(--card-rotate)) !important;
+  opacity: max(0.18, calc(1 - (var(--depth) * 0.1))) !important;
+}
+
+.hero-stack-card.is-front {
+  opacity: 1 !important;
+}
+
+@media (max-width: 900px) {
+  .hero-stack-card,
+  .hero-stack-card:nth-child(1),
+  .hero-stack-card:nth-child(2),
+  .hero-stack-card:nth-child(3),
+  .hero-stack-card:nth-child(4),
+  .hero-stack-card:nth-child(5),
+  .hero-stack-card:nth-child(6),
+  .hero-stack-card:nth-child(7),
+  .hero-stack-card:nth-child(8) {
+    transform:
+      translate3d(calc(var(--depth) * -8px), calc(var(--depth) * 8px), 0)
+      scale(calc(1 - (var(--depth) * 0.035)))
+      rotate(var(--card-rotate)) !important;
+  }
+}

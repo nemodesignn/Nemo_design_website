@@ -1501,6 +1501,8 @@ function bindHeroCardStack() {
       card.style.setProperty("--depth", depth);
       card.style.zIndex = String(cards.length - depth);
       card.classList.toggle("is-front", depth === 0);
+      card.style.opacity = depth === 0 ? "1" : String(Math.max(0.18, 1 - depth * 0.1));
+      card.style.transform = `translate3d(${depth * -7}px, ${depth * 9}px, 0) scale(${1 - depth * 0.035}) rotate(${card.style.getPropertyValue("--card-rotate") || "0deg"})`;
     });
     active = (active + 1) % cards.length;
   };
