@@ -5703,3 +5703,36 @@ body.is-locked {
     width: clamp(138px, 40vw, 168px) !important;
   }
 }
+
+/* Keep WhatsApp popup in the visible mobile viewport */
+.whatsapp-modal-overlay {
+  top: var(--modal-offset-top, 0px) !important;
+  bottom: auto !important;
+  min-height: 0 !important;
+  height: var(--modal-vh, 100dvh) !important;
+  align-items: start !important;
+  justify-items: center !important;
+  place-items: start center !important;
+  padding-top: max(86px, calc(env(safe-area-inset-top) + 72px)) !important;
+  overflow: hidden !important;
+}
+
+.whatsapp-modal {
+  width: min(430px, calc(100vw - 44px)) !important;
+  max-height: calc(var(--modal-vh, 100dvh) - 118px) !important;
+  overflow: auto !important;
+}
+
+.about-card-face {
+  box-shadow: none !important;
+}
+
+.about-card-front img {
+  box-shadow: none !important;
+}
+
+@media (max-width: 900px) {
+  .whatsapp-modal-overlay {
+    padding-top: max(78px, calc(env(safe-area-inset-top) + 64px)) !important;
+  }
+}

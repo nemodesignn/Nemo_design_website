@@ -124,12 +124,21 @@ let lockedScrollY = 0;
 
 function openWhatsAppModal() {
   lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+  syncModalViewportVars();
   setState({ whatsappOpen: true });
 }
 
 function closeWhatsAppModal() {
   setState({ whatsappOpen: false });
   window.requestAnimationFrame(() => window.scrollTo(0, lockedScrollY));
+}
+
+function syncModalViewportVars() {
+  const viewport = window.visualViewport;
+  const height = viewport?.height || window.innerHeight;
+  const offsetTop = viewport?.offsetTop || 0;
+  document.documentElement.style.setProperty("--modal-vh", `${height}px`);
+  document.documentElement.style.setProperty("--modal-offset-top", `${offsetTop}px`);
 }
 
 function StickyNote({ text, tone = "yellow", className = "" }) {
@@ -1514,7 +1523,7 @@ function afterRender() {
   initGsapAnimations();
 
   if (state.whatsappOpen) {
-    window.scrollTo(0, lockedScrollY);
+    syncModalViewportVars();
     window.setTimeout(() => {
       document.querySelector(".whatsapp-open")?.focus({ preventScroll: true });
     }, 0);
@@ -1547,6 +1556,9 @@ window.addEventListener("scroll", () => {
   const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
   document.documentElement.style.setProperty("--scroll-progress", `${window.scrollY / max}`);
 });
+
+window.visualViewport?.addEventListener("resize", syncModalViewportVars);
+window.visualViewport?.addEventListener("scroll", syncModalViewportVars);
 
 window.addEventListener("mousemove", (event) => {
   document.documentElement.style.setProperty("--cursor-x", `${event.clientX}px`);
