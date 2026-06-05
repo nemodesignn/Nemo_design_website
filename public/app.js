@@ -120,6 +120,17 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 const whatsappUrl = "https://wa.me/917015016467?text=Hi%2C%20I%20want%20to%20talk%20to%20you%20regarding%20your%20services.";
 
 const navItems = ["Home", "Work", "Services", "Approach"];
+let lockedScrollY = 0;
+
+function openWhatsAppModal() {
+  lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+  setState({ whatsappOpen: true });
+}
+
+function closeWhatsAppModal() {
+  setState({ whatsappOpen: false });
+  window.requestAnimationFrame(() => window.scrollTo(0, lockedScrollY));
+}
 
 function StickyNote({ text, tone = "yellow", className = "" }) {
   return h(
@@ -428,7 +439,7 @@ function Header() {
       h("button", {
         className: "pill-button",
         "aria-label": "Open WhatsApp confirmation",
-        onClick: () => setState({ whatsappOpen: true })
+        onClick: openWhatsAppModal
       }, "Let's talk")
     )
   );
@@ -449,7 +460,10 @@ function MenuOverlay() {
         h("button", {
           className: "pill-button inverse",
           "aria-label": "Open WhatsApp confirmation",
-          onClick: () => setState({ menuOpen: false, whatsappOpen: true })
+          onClick: () => {
+            lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+            setState({ menuOpen: false, whatsappOpen: true });
+          }
         }, "Let's talk")
       ),
       h("div", { className: "menu-links" },
@@ -472,7 +486,10 @@ function MenuOverlay() {
         h("button", {
           className: "pill-button menu-whatsapp-button",
           "aria-label": "Open WhatsApp confirmation",
-          onClick: () => setState({ menuOpen: false, whatsappOpen: true })
+          onClick: () => {
+            lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+            setState({ menuOpen: false, whatsappOpen: true });
+          }
         }, "Let's talk")
       ),
       h("div", { className: "clock-list" },
@@ -524,7 +541,7 @@ function WhatsAppModal() {
     "div",
     {
       className: "whatsapp-modal-overlay",
-      onClick: () => setState({ whatsappOpen: false }),
+      onClick: closeWhatsAppModal,
       "aria-hidden": false
     },
     h("section", {
@@ -538,7 +555,7 @@ function WhatsAppModal() {
       h("button", {
         className: "whatsapp-modal-close",
         "aria-label": "Close WhatsApp popup",
-        onClick: () => setState({ whatsappOpen: false })
+        onClick: closeWhatsAppModal
       }, "Close"),
       h("h3", { id: "whatsapp-modal-title" }, "Open WhatsApp?"),
       h("p", { id: "whatsapp-modal-message" }, "You will be redirected to WhatsApp to start a conversation with us."),
@@ -546,7 +563,7 @@ function WhatsAppModal() {
         h("button", {
           className: "whatsapp-cancel",
           "aria-label": "Cancel WhatsApp redirect",
-          onClick: () => setState({ whatsappOpen: false })
+          onClick: closeWhatsAppModal
         }, "Cancel"),
         h("a", {
           className: "pill-button whatsapp-open",
@@ -555,7 +572,7 @@ function WhatsAppModal() {
           target: "_blank",
           rel: "noopener noreferrer",
           onClick: () => {
-            setState({ whatsappOpen: false });
+            closeWhatsAppModal();
           }
         }, "Open WhatsApp")
       )
@@ -976,7 +993,7 @@ function Footer() {
         className: "pill-button inverse",
         type: "button",
         "aria-label": "Open WhatsApp confirmation",
-        onClick: () => setState({ whatsappOpen: true })
+        onClick: openWhatsAppModal
       }, "say hello")
     ),
     h("div", { className: "footer-grid" },
@@ -1490,6 +1507,11 @@ function bindPageTransitions() {
 function afterRender() {
   document.body.classList.toggle("is-locked", state.menuOpen || state.contactOpen || state.whatsappOpen || state.preloaderVisible);
   document.body.classList.toggle("is-dark-mode", state.darkMode);
+  if (state.whatsappOpen) {
+    document.body.style.top = `-${lockedScrollY}px`;
+  } else {
+    document.body.style.top = "";
+  }
   runPreloaderAnimation();
   bindPageTransitions();
   bindProjectParallax();
@@ -1497,8 +1519,9 @@ function afterRender() {
   initGsapAnimations();
 
   if (state.whatsappOpen) {
+    window.scrollTo(0, lockedScrollY);
     window.setTimeout(() => {
-      document.querySelector(".whatsapp-open")?.focus();
+      document.querySelector(".whatsapp-open")?.focus({ preventScroll: true });
     }, 0);
   }
 
@@ -1521,7 +1544,7 @@ window.__afterStudioRender = afterRender;
 
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && state.whatsappOpen) {
-    setState({ whatsappOpen: false });
+    closeWhatsAppModal();
   }
 });
 
