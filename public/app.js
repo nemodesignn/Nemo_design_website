@@ -1507,11 +1507,6 @@ function bindPageTransitions() {
 function afterRender() {
   document.body.classList.toggle("is-locked", state.menuOpen || state.contactOpen || state.whatsappOpen || state.preloaderVisible);
   document.body.classList.toggle("is-dark-mode", state.darkMode);
-  if (state.whatsappOpen) {
-    document.body.style.top = `-${lockedScrollY}px`;
-  } else {
-    document.body.style.top = "";
-  }
   runPreloaderAnimation();
   bindPageTransitions();
   bindProjectParallax();

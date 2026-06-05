@@ -5602,3 +5602,104 @@ body.is-locked {
     width: clamp(170px, 50vw, 215px) !important;
   }
 }
+
+/* Mobile popup and card correction */
+body.is-locked {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  overflow: hidden !important;
+  width: 100% !important;
+}
+
+.whatsapp-modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: 22px !important;
+  pointer-events: auto !important;
+}
+
+.whatsapp-modal {
+  display: grid !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.about-me-media {
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.about-card-front {
+  border: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .hero.section-shell {
+    gap: 24px !important;
+    padding-bottom: 58px !important;
+  }
+
+  .hero-card-stack {
+    width: clamp(150px, 42vw, 185px) !important;
+    min-width: 0 !important;
+    margin: 0 auto 8px !important;
+  }
+
+  .hero-stack-card:nth-child(1) {
+    transform: translate3d(0, 0, 0) rotate(-8deg) !important;
+  }
+
+  .hero-stack-card:nth-child(2) {
+    transform: translate3d(-8px, 8px, 0) scale(0.965) rotate(5deg) !important;
+  }
+
+  .hero-stack-card:nth-child(3) {
+    transform: translate3d(-16px, 16px, 0) scale(0.93) rotate(-3deg) !important;
+  }
+
+  .hero-stack-card:nth-child(4) {
+    transform: translate3d(-24px, 24px, 0) scale(0.895) rotate(8deg) !important;
+  }
+
+  .hero-stack-card:nth-child(5) {
+    transform: translate3d(-32px, 32px, 0) scale(0.86) rotate(-6deg) !important;
+  }
+
+  .hero-stack-card:nth-child(6) {
+    transform: translate3d(-40px, 40px, 0) scale(0.825) rotate(4deg) !important;
+  }
+
+  .hero-stack-card:nth-child(7) {
+    transform: translate3d(-48px, 48px, 0) scale(0.79) rotate(-10deg) !important;
+  }
+
+  .hero-stack-card:nth-child(8) {
+    transform: translate3d(-56px, 56px, 0) scale(0.755) rotate(7deg) !important;
+  }
+
+  .hero-marquee {
+    position: relative !important;
+    z-index: 4 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero,
+  .hero.section-shell {
+    padding-bottom: 48px !important;
+  }
+
+  .hero-card-stack {
+    width: clamp(138px, 40vw, 168px) !important;
+  }
+}
