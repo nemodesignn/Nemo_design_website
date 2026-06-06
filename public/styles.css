@@ -5774,3 +5774,60 @@ body.is-locked {
       rotate(var(--card-rotate)) !important;
   }
 }
+
+/* Definitive rotating stack: identical depth model on desktop and mobile */
+.hero-card-stack {
+  overflow: visible !important;
+  isolation: isolate;
+}
+
+.hero-stack-card,
+.hero-stack-card:nth-child(1),
+.hero-stack-card:nth-child(2),
+.hero-stack-card:nth-child(3),
+.hero-stack-card:nth-child(4),
+.hero-stack-card:nth-child(5),
+.hero-stack-card:nth-child(6),
+.hero-stack-card:nth-child(7),
+.hero-stack-card:nth-child(8) {
+  z-index: calc(20 - var(--depth)) !important;
+  opacity: max(0.3, calc(1 - (var(--depth) * 0.09))) !important;
+  transform:
+    translate3d(calc(var(--depth) * -7px), calc(var(--depth) * 9px), 0)
+    scale(calc(1 - (var(--depth) * 0.035)))
+    rotate(var(--card-rotate)) !important;
+  transition:
+    transform 760ms cubic-bezier(.16, 1, .3, 1),
+    opacity 520ms ease,
+    filter 520ms ease,
+    box-shadow 520ms ease !important;
+  visibility: visible !important;
+}
+
+.hero-stack-card.is-front {
+  z-index: 20 !important;
+  opacity: 1 !important;
+  filter: saturate(1.04) contrast(1.02);
+  box-shadow: 0 30px 78px rgba(0, 0, 0, 0.16);
+}
+
+@media (max-width: 900px) {
+  .hero-card-stack {
+    width: clamp(150px, 42vw, 185px) !important;
+  }
+
+  .hero-stack-card,
+  .hero-stack-card:nth-child(1),
+  .hero-stack-card:nth-child(2),
+  .hero-stack-card:nth-child(3),
+  .hero-stack-card:nth-child(4),
+  .hero-stack-card:nth-child(5),
+  .hero-stack-card:nth-child(6),
+  .hero-stack-card:nth-child(7),
+  .hero-stack-card:nth-child(8) {
+    transform:
+      translate3d(calc(var(--depth) * -7px), calc(var(--depth) * 9px), 0)
+      scale(calc(1 - (var(--depth) * 0.035)))
+      rotate(var(--card-rotate)) !important;
+  }
+}
