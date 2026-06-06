@@ -5831,3 +5831,15 @@ body.is-locked {
       rotate(var(--active-rotate, -8deg)) !important;
   }
 }
+
+/* Keep the white Flip Me control readable in both color modes */
+.about-info-button,
+.about-info-button:hover,
+.about-info-button:focus,
+body.is-dark-mode .about-info-button,
+body.is-dark-mode .about-info-button:hover,
+body.is-dark-mode .about-info-button:focus {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+}
