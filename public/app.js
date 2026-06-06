@@ -1499,13 +1499,12 @@ function bindHeroCardStack() {
   const update = () => {
     cards.forEach((card, index) => {
       const depth = (index - active + cards.length) % cards.length;
-      const rotation = card.style.getPropertyValue("--card-rotate") || "0deg";
       card.style.setProperty("--depth", depth);
       card.style.setProperty("z-index", String(cards.length - depth), "important");
-      card.style.setProperty("opacity", String(Math.max(0.3, 1 - depth * 0.09)), "important");
+      card.style.setProperty("opacity", String(Math.max(0.48, 1 - depth * 0.07)), "important");
       card.style.setProperty(
         "transform",
-        `translate3d(${depth * -7}px, ${depth * 9}px, 0) scale(${1 - depth * 0.035}) rotate(${rotation})`,
+        `translate3d(${depth * -5}px, ${depth * 6}px, 0) scale(${1 - depth * 0.012})`,
         "important"
       );
       card.classList.toggle("is-front", depth === 0);
